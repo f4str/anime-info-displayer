@@ -1,39 +1,31 @@
 # Anime Information Displayer
 
-## Using the Jikan API
-Creates API GET Requests to obtain Json objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#)
+## Jikan API
+This program creates API GET Requests to obtain Json objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#)
 
-To use import the API from the Jikan class
+API calls are done using the Python requests package. Ensure this package is installed using pip
+```bash
+pip install requests
+```
+
+This API can also be used by importing the Jikan class
 ```python
 from api.jikan import Jikan
 
 jikan = Jikan()
 ```
 
-Methods can be called on the Jikan object to return Json for the resulting anime/manga/search/etc. Possible uses are listed below, brackets indicate optional paramters.
+Methods can be called on the Jikan object to return Json for the resulting anime/manga/search/etc. Note that manga refers also refers light novels. Some possible uses are listed below
 
 ```python
-anime_json = jikan.anime(anime_id, request)
+one_punch_man = jikan.anime(30276)
+fullmetal_alchemist = jikan.manga(25)
 
-manga_json = jikan.manga(manga_id, request)
+seasonal = jikan.season(2018, 'fall')
+schedule = jikan.schedule()
 
-person_json = ikan.person(person_id)
-
-character_json = jikan.character(character_id)
-
-seasonal_anime = jikan.season(year, season)
-
-seasons_archive = jikan.archive()
-
-anime_schedule = jikan.schedule(day)
-
-top_anime = jikan.top("anime", page, subtype)
-
-top_manga = jikan.top("manga", page, subtype)
-
-top_anime_genre = jikan.genre("anime", genre, page)
-
-top_manga_genre = jikan.genre("manga", genre, page)
-
-search = jikan.search(category, name)
+popular_anime = jikan.top('anime', 1, 'bypopularity')
+top_manga = jikan.top('manga', 4)
+action_anime = jikan.genre('anime', 'action')
+jojo_manga = jikan.search('manga', 'jojo')
 ```
