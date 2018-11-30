@@ -1,6 +1,6 @@
 import requests
-from api.constants import *
-from api.exceptions import ParameterError, ResponseError
+from exceptions import ParameterError, ResponseError
+from constants import *
 
 session = requests.Session()
 

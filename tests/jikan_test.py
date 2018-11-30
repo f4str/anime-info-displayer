@@ -1,5 +1,4 @@
-from api.jikan import Jikan
-import json
+from jikan import Jikan
 
 jikan = Jikan()
 # response = jikan.anime(19815)

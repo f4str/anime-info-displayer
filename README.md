@@ -4,11 +4,13 @@
 This program creates API GET Requests to obtain Json objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#)
 
 API calls are done using the Python requests package. Ensure this package is installed using pip
+
 ```bash
 pip install requests
 ```
 
 This API can also be used by importing the Jikan class
+
 ```python
 from api.jikan import Jikan
 

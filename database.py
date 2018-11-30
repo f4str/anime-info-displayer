@@ -1,9 +1,9 @@
 import sqlite3
 import time
-from api.jikan import Jikan
+from jikan import Jikan
 
 # establish database connection
-conn = sqlite3.connect('database.db')
+conn = sqlite3.connect('db.sqlite3')
 c = conn.cursor()
 
 # create anime table
