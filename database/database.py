@@ -1,6 +1,6 @@
 import sqlite3
 import time
-from jikan import Jikan
+from api.jikan.jikan import Jikan
 
 # establish database connection
 conn = sqlite3.connect('db.sqlite3')

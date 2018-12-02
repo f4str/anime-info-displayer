@@ -1,6 +1,6 @@
-from anime import Anime
-from tree import AnimeNode
-from jikan import Jikan
+from api.anime.anime import Anime
+from api.anime.tree import AnimeNode
+from api.jikan.jikan import Jikan
 
 jikan = Jikan()
 data = jikan.anime(19815)
