@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="../scripts/script.js"></script>
+	<title>Anime Information Displayer</title>
+</head>
+
+<body onload="loadMainPage()">
+	<h1 class="title">Anime Information Displayer</h1>
+
+	<div class="container">
+		<input id="search-bar" type="text" placeholder="Enter anime name" onchange="loadSearch(this.value)" />
+		<button id="search-button">Search</button>
+	</div>
+
+	<table id="result-table">
+		<tr class="header row">
+			<th class="header col">Rank</th>
+			<th class="header col">Picture</th>
+			<th class="header col">Title</th>
+			<th class="header col">Type</th>
+			<th class="header col">Ep</th>
+			<th class="header col">Date</th>
+			<th class="header col">Score</th>
+		</tr>
+	</table>
+
+</body>
+
+</html>

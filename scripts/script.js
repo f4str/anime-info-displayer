@@ -11,23 +11,28 @@ const items = {
 };
 
 function loadMainPage() {
-	let table = document.getElementById("result-table");
+    let sql = "SELECT * FROM anime ORDER BY rank ASC LIMIT 25";
+	createTable(sql);
+}
 
-	let db = new sqlite3.Database('database/db.sqlite3');
-	db.all("SELECT * FROM anime ORDER BY rank ASC LIMIT 25", function (err, rows) {
+function loadSearch(text) {
+    let sql = "SELECT * FROM anime WHERE title LIKE '%" + text + "%' ORDER BY rank ASC LIMIT 25";
+    createTable(sql);
+}
+
+function createTable(sql) {
+    let table = document.getElementById("result-table");
+    table.innerHTML = table.rows[0].innerHTML;
+    
+    let db = new sqlite3.Database(__dirname + '/../database/db.sqlite3');
+    
+    db.all(sql, function (err, rows) {
 		if (err) {
 			throw err;
 		}
 		rows.forEach((row) => {
-			console.log(row);
-
 			var tr = document.createElement("tr");
 			tr.classList.add("row");
-
-			/*var rank = document.createElement("td");
-			rank.classList.add("rank", "col");
-			rank.innerHTML = row['rank'];
-			tr.appendChild(rank);*/
 			
 			for (let i in items) {
 				var td = document.createElement('td');
@@ -35,7 +40,7 @@ function loadMainPage() {
 				if (i == "date") {
 					let start = row[items[i][0]] ? row[items[i][0]] : "Present";
 					let end = row[items[i][1]] ? row[items[i][1]] : "Present";
-					td.innerHTML = start + " - " + end;
+					td.innerHTML = start + " -<br /> " + end;
 				}
 				else if (i == 'pic') {
 					td.innerHTML = "<img class='image' src='" + row[items[i]] + "'>";
