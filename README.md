@@ -1,7 +1,10 @@
 # Anime Information Displayer
+View useful information about anime series in one convenient and condensed location. This application will display all information that is found on MyAnimeList in a more condensed format in addition to a visual representation of all prequels, sequels, side stories, etc in a easy to read mathematical tree format.
+
+The backend is created using Python to make API calls to obtain information and generate the watch order tree. The front end is created using the electron framework for JavaScript, HTML, and CSS. 
 
 ## Jikan API
-This program creates API GET Requests to obtain Json objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#)
+This program creates API GET Requests to obtain JSON objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#)
 
 API calls are done using the Python requests package. Ensure this package is installed using pip
 
