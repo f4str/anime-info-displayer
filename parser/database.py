@@ -1,6 +1,6 @@
 import sqlite3
 import time
-from api.jikan.jikan import Jikan
+from jikan import Jikan
 
 # establish database connection
 conn = sqlite3.connect('db.sqlite3')
@@ -25,7 +25,7 @@ MAX_PAGE = 100
 for page in range(1, MAX_PAGE + 1):
 	response = jikan.top('anime', page)
 	top = response['top']
-	print(page)
+	print(page, "/", MAX_PAGE)
 	for item in top:
 		values = (
 			item['mal_id'],

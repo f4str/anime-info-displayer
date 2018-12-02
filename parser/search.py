@@ -1,8 +1,8 @@
 from collections import deque
-from api.anime.tree import AnimeTree
-from api.anime.anime import Anime
-from api.anime.constants import *
-from api.jikan.jikan import Jikan
+from tree import AnimeTree
+from anime import Anime
+from constants import *
+from jikan import Jikan
 
 
 def make_tree(anime):
@@ -34,5 +34,7 @@ def make_tree(anime):
 jikan = Jikan()
 data = jikan.anime(27899)
 anime1 = Anime(data)
+print(anime1)
 
 tree1 = make_tree(anime1)
+print(tree1)

@@ -24,7 +24,7 @@ function createTable(sql) {
     let table = document.getElementById("result-table");
     table.innerHTML = table.rows[0].innerHTML;
     
-    let db = new sqlite3.Database(__dirname + '/../database/db.sqlite3');
+    let db = new sqlite3.Database('parser/db.sqlite3');
     
     db.all(sql, function (err, rows) {
 		if (err) {
@@ -44,7 +44,10 @@ function createTable(sql) {
 				}
 				else if (i == 'pic') {
 					td.innerHTML = "<img class='image' src='" + row[items[i]] + "'>";
-				}
+                }
+                else if (i == 'score') {
+                    td.innerHTML = row[items[i]].toFixed(2) + "/10";
+                }
 				else {
 					td.innerHTML = row[items[i]] ? row[items[i]] : "N/A";
 				}

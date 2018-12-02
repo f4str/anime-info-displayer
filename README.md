@@ -8,7 +8,7 @@ The backend is created using Python to make API calls to obtain information and 
 
 Ensure Python is installed with the required packages before running this application. Install/update the Python packages for requests and sqlite3 using pip
 
-```bash
+```shell
 pip install requests
 pip install sqlite3
 ```
@@ -17,13 +17,13 @@ pip install sqlite3
 
 Ensure Node.js is installed with the required libraries before running this application. Install using npm
 
-```bash
+```shell
 npm install
 ```
 
 Due to issues with electron and sqlite3, electron-builder must be used to resolve conflicts. After running the command to install libraries, run the electron-builder command
 
-```bash
+```shell
 electron-builder install-app-deps
 ```
 
@@ -31,18 +31,10 @@ This will build sqlite3 with electron bindings to allow them to be properly comp
 
 ## Jikan API
 
-This program creates API GET Requests to obtain JSON objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#)
-
-API calls are done using the Python requests package. Ensure this package is installed using pip
-
-```bash
-pip install requests
-```
-
-This API can also be used by importing the Jikan class
+This program creates API GET Requests to obtain JSON objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#). API calls are done using the Python requests package. Ensure this package is installed using pip. This API can also be used by importing the Jikan class from the parser Python package
 
 ```python
-from api.jikan.jikan import Jikan
+from parser.jikan import Jikan
 
 jikan = Jikan()
 ```
@@ -66,4 +58,20 @@ jojo_manga = jikan.search('manga', 'jojo')
 
 This program uses SQLite to store searchable anime entries. More information about [SQLite](https://www.sqlite.org/index.html) 
 
-Database is stored in the `/database/db.sqlite` file. These entries may become outdated so the database can be updated using the `/database/database.py` file. The database is also used in the front end using electron with Node.js.
+The database is stored in the `/parser/db.sqlite` file. These entries may become outdated so the database can be updated using the `/parser/database.py` file. Update by going to the `/parser/` directory and running the command
+
+```shell
+python -m database.py
+```
+
+This SQLite database is also used by Node.js to load initial anime entries to search from.
+
+## Running the Application
+
+The front end of this program is run using the electron library for Node.js. More information about [electron](https://electronjs.org/). After ensuring all dependencies have been installed and the database updated, start the application using npm 
+
+```shell
+npm start
+```
+
+Afterwards, a windows will appear that runs the application.

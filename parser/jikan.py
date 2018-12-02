@@ -1,6 +1,6 @@
 import requests
-from api.jikan.exceptions import ParameterError, ResponseError
-from api.jikan.constants import *
+from exceptions import ParameterError, ResponseError
+from constants import *
 
 session = requests.Session()
 
