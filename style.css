@@ -86,14 +86,20 @@ button {
 	text-align: left;
 	margin-left: auto;
 	margin-right: auto;
-	overflow: auto;
+    overflow: auto;
+    display: none;
 }
 
 .sub-container {
 	background-color: #a3a3c2;
 	padding: 5px 10px 5px 10px;
 	margin: 5px 5px 5px 5px;
-	-overflow: auto;
+}
+
+.tree-container {
+    background-color: #a3a3c2;
+	padding: 5px 10px 5px 10px;
+	margin: 5px 5px 5px 5px;
 }
 
 .sub-container:after {

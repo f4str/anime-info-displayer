@@ -64,7 +64,7 @@ function generateTable(results) {
 				td.innerHTML = "<img class='table-image' src='" + row[items[i]] + "'>";
 			}
 			else if (i == 'table-score') {
-				td.innerHTML = row[items[i]].toFixed(2) + "/10";
+				td.innerHTML = row[items[i]] ? row[items[i]].toFixed(2) + "/10" : "N/A";
 			}
 			else {
 				td.innerHTML = row[items[i]] ? row[items[i]] : "N/A";
@@ -85,9 +85,7 @@ function createAnimePage(id) {
 }
 
 function loadAnimePage() {
-    document.getElementById('main-container').style.display = 'none';
-    
-	id = parseInt(electron.remote.getCurrentWindow().getTitle());
+    id = parseInt(electron.remote.getCurrentWindow().getTitle());
     
 	let options = {
 	    mode: 'json',
@@ -108,15 +106,13 @@ function generatePage(results) {
 	let anime = results[0];
     let tree = results[1];
     
-    console.log(anime);
-    
     electron.remote.getCurrentWindow().setTitle(anime['title']);
     
     document.getElementById('name').innerHTML = anime['title'];
     document.getElementById('japanese-name').innerHTML = anime['title'];
     document.getElementById('english-name').innerHTML = anime['title_english'];
     document.getElementById('picture').src = anime['image'];
-    document.getElementById('score').innerHTML = anime['score'].toFixed(2);
+    document.getElementById('score').innerHTML = anime['score'] ? anime['score'].toFixed(2) : "N/A";
     document.getElementById('episodes').innerHTML = anime['episodes'];
     document.getElementById('status').innerHTML = anime['airing'] ? "Airing" : "Finished Airing";
     document.getElementById('rank').innerHTML = anime['rank']; 

@@ -71,5 +71,5 @@ GENRE = {
 	"thriller": 41
 }
 
-CHILDREN = ("Sequel", "Side story", "Other", "Spin-off")
+CHILDREN = ("sequel", "side story", "other", "spin-off")
 PARENT = ("Prequel", "Parent story")
