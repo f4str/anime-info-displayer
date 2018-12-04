@@ -5,14 +5,14 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="script.js"></script>
-	<title>Anime Information Displayer</title>
+	<title>Anime Parser</title>
 </head>
 
-<body onload="loadMainPage()">
-	<h1 class="title">Anime Information Displayer</h1>
+<body onload="loadHomePage()">
+	<h1 class="title">Anime Parser</h1>
 
 	<div class="container">
-		<input id="search-bar" type="text" placeholder="Enter anime name" onchange="loadSearch(this.value)" />
+		<input id="search-bar" type="text" placeholder="Enter anime name" onchange="search(this.value)" />
 		<button id="search-button">Search</button>
 	</div>
 

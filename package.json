@@ -8,9 +8,7 @@
   },
   "dependencies": {
     "electron": "^3.0.10",
-    "electron-builder": "^20.38.2",
-    "python-shell": "^1.0.6",
-    "sqlite3": "^4.0.4"
+    "python-shell": "^1.0.6"
   },
   "devDependencies": {},
   "scripts": {

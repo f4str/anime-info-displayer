@@ -4,7 +4,7 @@ View useful information about anime series in one convenient and condensed locat
 
 The backend is created using Python to make API calls to obtain information and generate the watch order tree. The front end is created using the electron framework for JavaScript, HTML, and CSS.
 
-## Python Dependencies
+## Dependencies
 
 Ensure Python is installed with the required packages before running this application. Install/update the Python packages for requests and sqlite3 using pip
 
@@ -13,21 +13,11 @@ pip install requests
 pip install sqlite3
 ```
 
-## Node.js Dependencies
-
-Ensure Node.js is installed with the required libraries before running this application. Install using npm
+Ensure Node.js is installed with the required libraries before running this application. The required libraries are only electron and python-shell. Install all libraries using npm
 
 ```shell
 npm install
 ```
-
-Due to issues with electron and sqlite3, electron-builder must be used to resolve conflicts. After running the command to install libraries, run the electron-builder command
-
-```shell
-electron-builder install-app-deps
-```
-
-This will build sqlite3 with electron bindings to allow them to be properly compatible.
 
 ## Jikan API
 
@@ -68,10 +58,8 @@ This SQLite database is also used by Node.js to load initial anime entries to se
 
 ## Running the Application
 
-The front end of this program is run using the electron library for Node.js. More information about [electron](https://electronjs.org/). After ensuring all dependencies have been installed and the database updated, start the application using npm 
+The front end of this program is run using the electron library for Node.js. More information about [electron](https://electronjs.org/). After ensuring all dependencies have been installed and the database updated, start the application using npm
 
 ```shell
 npm start
 ```
-
-Afterwards, a windows will appear that runs the application.
