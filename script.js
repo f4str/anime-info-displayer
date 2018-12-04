@@ -123,11 +123,11 @@ function generatePage(results) {
     document.getElementById('popularity').innerHTML = anime['popularity'];
     document.getElementById('premiered').innerHTML = anime['premiered'];
     document.getElementById('start-date').innerHTML = months[anime['startdate']['month']] + anime['startdate']['day'] + ", " + anime['startdate']['year'];
-    document.getElementById('end-date').innerHTML = months[anime['enddate']['month']] + anime['enddate']['day'] + ", " + anime['enddate']['year'];
+    document.getElementById('end-date').innerHTML = !anime['airing'] ? months[anime['enddate']['month']] + anime['enddate']['day'] + ", " + anime['enddate']['year'] : "N/A";
     document.getElementById('rating').innerHTML = anime['rating'];
     document.getElementById('duration').innerHTML = anime['duration'];
     document.getElementById('source').innerHTML = anime['source'];
-    document.getElementById('broadcast').innerHTML = anime['broadcast'].split(' ')[0];
+    document.getElementById('broadcast').innerHTML = anime['broadcast'];
     document.getElementById('studio').innerHTML = anime['studio'];
     document.getElementById('licensor').innerHTML = anime['licensor'];
     
