@@ -9,7 +9,7 @@ const items = {
 	'table-date': ['start_date', 'end_date'],
 	'table-score': 'score'
 };
-const months = ['', 'January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October ', 'December '];
+const months = ['', 'January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October ', 'November ', 'December '];
 
 function loadHomePage() {
 	let options = {
@@ -85,8 +85,10 @@ function createAnimePage(id) {
 }
 
 function loadAnimePage() {
+    document.getElementById('main-container').style.display = 'none';
+    
 	id = parseInt(electron.remote.getCurrentWindow().getTitle());
-	
+    
 	let options = {
 	    mode: 'json',
 	    pythonOptions: ['-u'],
@@ -108,11 +110,13 @@ function generatePage(results) {
     
     console.log(anime);
     
+    electron.remote.getCurrentWindow().setTitle(anime['title']);
+    
     document.getElementById('name').innerHTML = anime['title'];
     document.getElementById('japanese-name').innerHTML = anime['title'];
     document.getElementById('english-name').innerHTML = anime['title_english'];
     document.getElementById('picture').src = anime['image'];
-    document.getElementById('score').innerHTML = anime['score'];
+    document.getElementById('score').innerHTML = anime['score'].toFixed(2);
     document.getElementById('episodes').innerHTML = anime['episodes'];
     document.getElementById('status').innerHTML = anime['airing'] ? "Airing" : "Finished Airing";
     document.getElementById('rank').innerHTML = anime['rank']; 
@@ -120,5 +124,53 @@ function generatePage(results) {
     document.getElementById('premiered').innerHTML = anime['premiered'];
     document.getElementById('start-date').innerHTML = months[anime['startdate']['month']] + anime['startdate']['day'] + ", " + anime['startdate']['year'];
     document.getElementById('end-date').innerHTML = months[anime['enddate']['month']] + anime['enddate']['day'] + ", " + anime['enddate']['year'];
+    document.getElementById('rating').innerHTML = anime['rating'];
+    document.getElementById('duration').innerHTML = anime['duration'];
+    document.getElementById('source').innerHTML = anime['source'];
+    document.getElementById('broadcast').innerHTML = anime['broadcast'].split(' ')[0];
+    document.getElementById('studio').innerHTML = anime['studio'];
+    document.getElementById('licensor').innerHTML = anime['licensor'];
     
+    let genres = "";
+    anime['genres'].forEach((genre) => {
+        genres = genres + genre + ', ';
+    });
+    document.getElementById('genres').innerHTML = genres.substring(0, genres.length - 2);
+    
+    let ol = document.createElement('ol');
+    anime['openings'].forEach((opening) => {
+        let li = document.createElement('li');
+        li.innerHTML = opening;
+        ol.appendChild(li);
+    });
+    document.getElementById('openings').replaceWith(ol);
+    
+    ol = document.createElement('ol');
+    anime['endings'].forEach((opening) => {
+        let li = document.createElement('li');
+        li.innerHTML = opening;
+        ol.appendChild(li);
+    });
+    document.getElementById('endings').replaceWith(ol);
+    
+    document.getElementById('synopsis').innerHTML = anime['synopsis'];
+    
+    let p = document.createElement('p');
+    p.classList.add('small-text');
+    for (let i in anime['related']) {
+        let span = document.createElement('span');
+        span.classList.add('bold');
+        span.innerHTML = i + ": <br />";
+        let ul = document.createElement('ul');
+        for (let j in anime['related'][i]) {
+            let li = document.createElement('li');
+            li.innerHTML = anime['related'][i][j]['name']; 
+            ul.appendChild(li);
+        }
+        p.appendChild(span);
+        p.appendChild(ul);
+    }
+    document.getElementById('related').replaceWith(p);
+    
+    document.getElementById('main-container').style.display = 'block';
 }

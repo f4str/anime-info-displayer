@@ -27,6 +27,7 @@ class Anime:
 		self.startdate = data['aired']['prop']['from']
 		self.enddate = data['aired']['prop']['to']
 		self.studio = data['studios'][0]['name']
+		self.licensor = data['licensors'][0]['name'] 
 		self.genres = Anime.get_genres(data['genres'])
 		self.openings = Anime.get_songs(data['opening_themes'])
 		self.endings = Anime.get_songs(data['ending_themes'])
