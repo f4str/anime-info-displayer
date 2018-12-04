@@ -3,6 +3,8 @@ from tree import AnimeTree
 from anime import Anime
 from constants import *
 from jikan import Jikan
+import sys
+import json
 
 
 def make_tree(anime):
@@ -31,10 +33,15 @@ def make_tree(anime):
 	return tree
 
 
-jikan = Jikan()
-data = jikan.anime(27899)
-anime1 = Anime(data)
-print(anime1)
+if len(sys.argv) > 1:
+	id = int(sys.argv[1])
+else:
+	id = 31964
 
-tree1 = make_tree(anime1)
-print(tree1)
+jikan = Jikan()
+data = jikan.anime(id)
+anime = Anime(data)
+
+print(json.dumps(anime.__dict__))
+
+sys.stdout.flush()

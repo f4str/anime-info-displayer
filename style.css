@@ -5,20 +5,20 @@ body {
 }
 
 .title {
-    font-size: 28pt;
-    color: white;
+	font-size: 28pt;
+	color: white;
 }
 
-.container {
+.search-container {
 	margin: 10px 10px 10px 10px;
 }
 
-#search-bar {
+input {
 	font-size: 18pt;
 	width: 75%;
 }
 
-#search-button {
+button {
 	font-size: 18pt;
 	margin: 5px 5px 5px 5px;
 }
@@ -26,8 +26,9 @@ body {
 #result-table, .row, .col {
 	border: 2pt solid #555555;
 	border-collapse: collapse;
-    background-color: lightgray;
-    color: black;
+	background-color: lightgray;
+	color: black;
+	font-family: arial;
 }
 
 #result-table {
@@ -37,41 +38,124 @@ body {
 }
 
 .header {
-    font-size: 16pt;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: #909090;
+	font-size: 16pt;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #909090;
 }
 
-.rank {
-    width: 10%;
-    font-size: 24pt;
+.row:hover .col {
+	background-color: #707070;
 }
 
-.pic {
+.table-rank {
+	width: 10%;
+	font-size: 24pt;
+}
+
+.table-picture {
 	width: 10%;
 }
 
-.name {
+.table-name {
 	width: 30%;
 }
 
-.type {
+.table-type {
 	width: 10%;
 }
 
-.ep {
+.table-episodes {
 	width: 10%;
 }
 
-.date {
+.table-date {
 	width: 15%;
 }
 
-.score {
+.table-score {
 	width: 10%; 
 }
 
-.image {
+.table-image {
 	width: 100%;
+}
+
+.main-container {
+	width: 75%;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: auto;
+}
+
+.sub-container {
+	background-color: darkgray;
+	padding: 5px 10px 5px 10px;
+	margin: 5px 5px 5px 5px;
+	-overflow: auto;
+}
+
+.sub-container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.dual-container {
+	background-color: darkgray;
+	margin: 5px 5px 5px 5px;
+	padding: 5px 5px 5px 5px;
+	overflow: auto;
+}
+
+.picture {
+	max-width: 25%;
+	float: left;
+	padding-right: 10px;
+}
+
+.info-container {
+	float: left;
+	padding-left: 10px;
+	width: 70%;
+	overflow: auto;
+}
+
+.left-container {
+	float: left;
+	width: 45%;
+}
+
+.right-container {
+	float: left;
+	padding-left: 10px;
+	width: 45%;
+}
+
+.large-text {
+	font-size: 24pt;
+	color: black;
+	margin-top: 6pt;
+	margin-bottom: 6pt;
+}
+
+.medium-text {
+	font-size: 16pt;
+	color: black;
+	line-height: 16pt;
+	margin-top: 8pt;
+	margin-bottom: 8pt;
+}
+
+.small-text {
+	font-size: 14pt;
+	color: black;
+	line-height: 14pt;
+	margin-top: 8pt;
+	margin-bottom: 8pt;
+}
+
+.bold {
+	font-weight: bold;
 }

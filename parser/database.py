@@ -23,7 +23,7 @@ MAX_PAGE = 100
 
 # retrieve top 5000 anime
 for page in range(1, MAX_PAGE + 1):
-	response = jikan.top('anime', page)
+	response = jikan.top('anime', page, 'bypopularity')
 	top = response['top']
 	print(page, "/", MAX_PAGE)
 	for item in top:
@@ -42,7 +42,7 @@ for page in range(1, MAX_PAGE + 1):
 		c.execute('''INSERT OR REPLACE INTO anime(id, rank, title, image, type, episodes, start_date, end_date, score)
 						VALUES(?,?,?,?,?,?,?,?,?)''', values)
 	# 1 second pause to avoid API overload
-	time.sleep(1)
+	time.sleep(5)
 
 # commit changes and exit
 conn.commit()

@@ -18,6 +18,7 @@ class Anime:
 		self.rating = data['rating']
 		self.duration = data['duration']
 		self.score = data['score']
+		self.episodes = data['episodes']
 		self.rank = data['rank']
 		self.popularity = data['popularity']
 		self.synopsis = data['synopsis']
@@ -39,6 +40,12 @@ class Anime:
 	
 	def __hash__(self):
 		return hash(self.mal_id)
+	
+	def __str__(self):
+		return str(self.__dict__)
+	
+	def __repr__(self):
+		return str(self.__dict__)
 	
 	@classmethod
 	def get_genres(cls, data):
