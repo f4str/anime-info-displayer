@@ -104,7 +104,6 @@ function loadAnimePage() {
 
 function generatePage(results) {
 	let anime = results[0];
-    let tree = results[1];
     
     electron.remote.getCurrentWindow().setTitle(anime['title']);
     

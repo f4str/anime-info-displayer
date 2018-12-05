@@ -58,7 +58,7 @@ This SQLite database is also used by Node.js to load initial anime entries to se
 
 ## Running the Application
 
-The front end of this program is run using the electron library for Node.js. More information about [electron](https://electronjs.org/). After ensuring all dependencies have been installed and the database updated, start the application using npm
+The front end of this program is run using the electron library for Node.js. More information about [electron](https://electronjs.org/). After ensuring all dependencies have been installed and the database updated, start the application by running the `run.sh` script or by using npm
 
 ```shell
 npm start
