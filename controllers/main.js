@@ -8,10 +8,10 @@ let mainWindow
 function createWindow() {
 	// Create the browser window.
 	mainWindow = new BrowserWindow({ 
-        width: 1152, 
-        height: 864, 
-        webPreferences: { nativeWindowOpen: true }
-    })
+		width: 1152, 
+		height: 864, 
+		webPreferences: { nativeWindowOpen: true }
+	})
 
 	// and load the index.html of the app.
 	mainWindow.loadFile('views/index.html')

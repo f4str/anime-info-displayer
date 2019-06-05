@@ -105,7 +105,7 @@ class Jikan:
 		
 		return response.json()
 	
-	def top(self, category, page=1, subtype=""):
+	def top(self, category, subtype="", page=1):
 		"""
 		Gets top anime/manga/person/character
 		:param category: string

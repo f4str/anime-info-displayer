@@ -1,28 +1,21 @@
-import sqlite3
 import os
+os.chdir(os.path.join(os.path.abspath(os.path.curdir), 'models'))
 import sys
 import json
+from jikan import Jikan
 
 
-def dict_factory(cursor, row):
-	data = {}
-	for index, col in enumerate(cursor.description):
-		data[col[0]] = row[index]
-	return data
-
-
-path = os.path.dirname(os.path.abspath(__file__)) + "/db.sqlite3"
-conn = sqlite3.connect(path)
-conn.row_factory = dict_factory
-c = conn.cursor()
+jikan = Jikan()
 
 if len(sys.argv) > 1:
 	title = sys.argv[1]
-	c.execute("SELECT * FROM anime WHERE title LIKE \'%{title}%\' ORDER BY rank ASC LIMIT 25".format(title=title))
+	response = jikan.search('anime', title)
+	results = response['results']
 else:
-	c.execute('SELECT * FROM anime ORDER BY rank ASC LIMIT 25')
+	response = jikan.top('anime', 'bypopularity')
+	results = response['top']
 
-for entry in c.fetchall():
+for entry in results:
 	print(json.dumps(entry))
 
 sys.stdout.flush()

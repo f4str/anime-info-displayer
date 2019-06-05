@@ -1,8 +1,8 @@
-import { PythonShell } from "python-shell";
-import { remote } from 'electron';
+const { PythonShell } = require("python-shell");
+const { remote } = require('electron');
 const items = {
 	'table-rank': 'rank',
-	'table-picture': 'image',
+	'table-picture': 'image_url',
 	'table-name': 'title',
 	'table-type': 'type',
 	'table-episodes': 'episodes',
@@ -27,6 +27,11 @@ function loadHomePage() {
 }
 
 function search(title) {
+	if (!title) {
+		loadHomePage();
+		return;
+	}
+	
 	let options = {
 		mode: 'json',
 		pythonOptions: ['-u'],
@@ -49,11 +54,11 @@ function generateTable(results) {
 	results.forEach((row) => {
 		let tr = document.createElement('tr');
 		tr.classList.add('row');
-		for (i in items) {
+		for (let i in items) {
 			let td = document.createElement('td');
 			td.classList.add(i, 'col');
 			td.addEventListener('click', function () {
-				createAnimePage(row['id']);
+				createAnimePage(row['mal_id']);
 			});
 			if (i == "table-date") {
 				let start = row[items[i][0]] ? row[items[i][0]] : "Present";

@@ -6,14 +6,13 @@ The backend is created using Python to make API calls to obtain information and 
 
 ## Dependencies
 
-Ensure Python is installed with the required packages before running this application. Install/update the Python packages for requests and sqlite3 using pip
+Ensure Python is installed with the required packages before running this application. Install/update the Python packages for requests using pip
 
 ```shell
 pip install requests
-pip install sqlite3
 ```
 
-Ensure Node.js is installed with the required libraries before running this application. The required libraries are only electron and python-shell. Install all libraries using npm
+Ensure Node.js is installed with the required libraries before running this application. The required libraries are electron and python-shell. Install all libraries using npm
 
 ```shell
 npm install
@@ -21,10 +20,10 @@ npm install
 
 ## Jikan API
 
-This program creates API GET Requests to obtain JSON objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#). API calls are done using the Python requests package. Ensure this package is installed using pip. This API can also be used by importing the Jikan class from the Python package
+This program creates API GET Requests to obtain JSON objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#). API calls are done using the Python requests package. Ensure this package is installed using pip. This API can also be used by importing the Jikan class from the Python module
 
 ```python
-from models.jikan import Jikan
+from jikan import Jikan
 
 jikan = Jikan()
 ```
@@ -38,28 +37,18 @@ fullmetal_alchemist = jikan.manga(25)
 seasonal = jikan.season(2018, 'fall')
 schedule = jikan.schedule()
 
-popular_anime = jikan.top('anime', 1, 'bypopularity')
-top_manga = jikan.top('manga', 4)
+popular_anime = jikan.top('anime', 'bypopularity')
+top_manga_page4 = jikan.top('manga', 4)
 action_anime = jikan.genre('anime', 'action')
 jojo_manga = jikan.search('manga', 'jojo')
 ```
 
-## SQLite Database
-
-This program uses SQLite to store searchable anime entries. More information about [SQLite](https://www.sqlite.org/index.html) 
-
-The database is stored in the `models/db.sqlite` file. These entries may become outdated so the database can be updated using the `models/database.py` file. Update by going to the `models` directory and running the command
-
-```shell
-python -m database.py
-```
-
-This SQLite database is also used by Node.js to load initial anime entries to search from.
-
 ## Running the Application
 
-The front end of this program is run using the electron library for Node.js. More information about [electron](https://electronjs.org/). After ensuring all dependencies have been installed and the database updated, start the application by running the `run.sh` script or by using npm
+The front end of this program is run using the electron library for Node.js. More information about [electron](https://electronjs.org/). After ensuring all dependencies have been installed/updated, start the application by running the `run.sh` script or by using npm
 
 ```shell
 npm start
 ```
+
+The program will open and automatically load the table for the 50 top anime sorted by popularity. Using the search feature will search MyAnimeList for the anime by the name of the title provided. Each entry of the table will list general information and can be clicked to open a new window with more information about the anime. Multiple windows can be opened at once.
