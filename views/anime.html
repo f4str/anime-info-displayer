@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="../controllers/parser.js"></script>
+	<title></title>
+</head>
+
+<body onload="loadAnimePage()">
+	<div class="main-container" id="main-container">
+		<div class="sub-container">
+			<h1 class="large-text" id="name"></h1>
+		</div>
+		
+		<div class="dual-container">
+			<img class="picture" src="#" id="picture">
+			
+			<div class="info-container">
+				<p class="medium-text"><span class="bold">Japanese Name:</span> <span id="japanese-name"></span></p>
+				<p class="medium-text"><span class="bold">English Name:</span> <span id="english-name"></span></p>
+				<p class="medium-text"><span class="bold">Score:</span> <span id="score"></span>/10</p>
+				
+				<div class="left-container">
+					<p class="small-text"><span class="bold">Type:</span> <span id="type"></span></p>
+					<p class="small-text"><span class="bold">Episodes:</span> <span id="episodes"></span></p>
+					<p class="small-text"><span class="bold">Status:</span> <span id="status"></span></p>
+				</div>
+				
+				<div class="right-container">
+					<p class="small-text"><span class="bold">Rank:</span> #<span id="rank"></span></p>
+					<p class="small-text"><span class="bold">Popularity:</span> #<span id="popularity"></span></p>
+					<p class="small-text"><span class="bold">Premiered:</span> <span id="premiered"></span></p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="sub-container">
+			<div class="left-container">
+				<p class="small-text"><span class="bold">Start Date:</span> <span id="start-date"></span></p>
+				<p class="small-text"><span class="bold">End Date:</span> <span id="end-date"></span></p>
+				<p class="small-text"><span class="bold">Rating:</span> <span id="rating"></span></p>
+				<p class="small-text"><span class="bold">Duration:</span> <span id="duration"></span></p>
+			</div>
+			
+			<div class="right-container">
+				<p class="small-text"><span class="bold">Source:</span> <span id="source"></span></p>
+				<p class="small-text"><span class="bold">Broadcast:</span> <span id="broadcast"></span></p>
+				<p class="small-text"><span class="bold">Studio:</span> <span id="studio"></span></p>
+				<p class="small-text"><span class="bold">Licensor:</span> <span id="licensor"></span></p>
+			</div>
+		</div>
+		
+		<div class="sub-container">
+			<p class="small-text"><span class="bold">Genres:</span> <span id="genres"></span></p>
+			
+			<div class="left-container">
+				<p class="small-text"><span class="bold">Openings: </span></p>
+				<p class="small-text"><ol id="openings"></ol></p>
+			</div>
+			
+			<div class="left-container">
+				<p class="small-text"><span class="bold">Endings: </span></p>
+				<p class="small-text"><ol id="endings"></ol></p>
+			</div>
+		</div>
+		
+		<div class="sub-container">
+			<p class="small-text"><span class="bold">Synopsis: </span></p>
+			<p class="small-text" id="synopsis"></p>
+		</div>
+		
+		<div class="sub-container">
+			<p class="small-text" id="related"></p>
+		</div>
+		
+		<div class="tree-container" id="tree">
+			<p class="small-text"><span class="bold">Relation Tree: </span></p>
+		</div>
+	</div>
+</body>
+
+</html>

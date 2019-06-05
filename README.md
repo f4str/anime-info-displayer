@@ -1,4 +1,4 @@
-# Anime Parser
+# Anime Info Displayer
 
 View useful information about anime series in one convenient and condensed location. This application will display all information that is found on MyAnimeList in a more condensed format in addition to a visual representation of all prequels, sequels, side stories, etc. in a easy to read mathematical tree format.
 
@@ -21,10 +21,10 @@ npm install
 
 ## Jikan API
 
-This program creates API GET Requests to obtain JSON objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#). API calls are done using the Python requests package. Ensure this package is installed using pip. This API can also be used by importing the Jikan class from the parser Python package
+This program creates API GET Requests to obtain JSON objects using the Jikan REST-ful API. More information about [Jikan](https://jikan.docs.apiary.io/#). API calls are done using the Python requests package. Ensure this package is installed using pip. This API can also be used by importing the Jikan class from the Python package
 
 ```python
-from parser.jikan import Jikan
+from models.jikan import Jikan
 
 jikan = Jikan()
 ```
@@ -48,7 +48,7 @@ jojo_manga = jikan.search('manga', 'jojo')
 
 This program uses SQLite to store searchable anime entries. More information about [SQLite](https://www.sqlite.org/index.html) 
 
-The database is stored in the `/parser/db.sqlite` file. These entries may become outdated so the database can be updated using the `/parser/database.py` file. Update by going to the `/parser/` directory and running the command
+The database is stored in the `models/db.sqlite` file. These entries may become outdated so the database can be updated using the `models/database.py` file. Update by going to the `models` directory and running the command
 
 ```shell
 python -m database.py
