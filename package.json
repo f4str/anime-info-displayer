@@ -2,7 +2,7 @@
   "name": "anime-info-displayer",
   "version": "1.0.0",
   "description": "View useful information about anime series in one convenient and condensed location. This application will display all information that is found on MyAnimeList in a more condensed format in addition to a visual representation of all prequels, sequels, side stories, etc in a easy to read mathematical tree format.",
-  "main": "controllers/main.js",
+  "main": "src/main.js",
   "directories": {
     "test": "tests"
   },

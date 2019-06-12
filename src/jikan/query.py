@@ -1,5 +1,5 @@
 import os
-os.chdir(os.path.join(os.path.abspath(os.path.curdir), 'models'))
+os.chdir(os.path.join(os.path.abspath(os.path.curdir), 'src/jikan'))
 import sys
 import json
 from jikan import Jikan

@@ -15,7 +15,7 @@ function loadHomePage() {
 	let options = {
 		mode: 'json',
 		pythonOptions: ['-u'],
-		scriptPath: 'models'
+		scriptPath: 'src/jikan'
 	};
 
 	PythonShell.run('query.py', options, function (err, results) {
@@ -35,7 +35,7 @@ function search(title) {
 	let options = {
 		mode: 'json',
 		pythonOptions: ['-u'],
-		scriptPath: 'models',
+		scriptPath: 'src/jikan',
 		args: [title]
 	};
 
@@ -86,7 +86,7 @@ function createAnimePage(id) {
 		height: 768, 
 		title: id.toString()
 	});
-	newWindow.loadFile('views/anime.html');
+	newWindow.loadFile('src/pages/anime.html');
 }
 
 function loadAnimePage() {
@@ -95,7 +95,7 @@ function loadAnimePage() {
 	let options = {
 		mode: 'json',
 		pythonOptions: ['-u'],
-		scriptPath: 'models', 
+		scriptPath: 'src/jikan', 
 		args: [id]
 	};
 
